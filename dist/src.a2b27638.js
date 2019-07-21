@@ -127,8 +127,27 @@ function fizzBuzzTranslate(input) {
 $("p").css("background-color");
 
 (function ($) {
-  $.fn.jQComments = function () {
-    this.append("Be the first one...");
+  var defaults = {
+    min: 10,
+    max: 100,
+    step: 10,
+    value: " "
+  };
+
+  $.fn.myrangeslider = function (options) {
+    var config = $.extend({}, defaults, options);
+    this.append('<input id="inputsl"/>');
+    this.append('<output id="output"/>');
+    $("input").attr("type", "range");
+    $("input").attr("min", config.min);
+    $("input").attr("max", config.max);
+    $("input").attr("step", config.step);
+    $("input").attr("value", config.value);
+    $("#output").html($("input").val());
+    $("input").on('input', function () {
+      console.log(inputsl.value);
+      output.value = inputsl.value;
+    });
     return this;
   };
 })(jQuery);
@@ -160,7 +179,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51020" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63904" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

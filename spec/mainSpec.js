@@ -9,9 +9,17 @@ it("Should find jQuery", function(){
     expect($).not.toBeNull();
 })
 
-it("Should display a nice message when no comments", function(){
-    setFixtures("<div id='comments'></div>");
-    var comments = $("#comments");
-    comments.jQComments();
-    expect(comments.html()).toBe("Be the first one...")
+it("Should content input", function(){
+    setFixtures('<div id="rangeslider"></div>');
+    var range = $("#rangeslider");
+    range.myrangeslider();
+    expect(range).toContainElement('input');
 })
+
+it("Should content output", function(){
+    setFixtures('<div id="rangeslider"></div>');
+    var range = $("#rangeslider");
+    range.myrangeslider();
+    expect(range).toContainElement('output');
+})
+
