@@ -23,3 +23,14 @@ it("Should content output", function(){
     expect(range).toContainElement('output');
 })
 
+
+it("Check attributes", function(){
+    setFixtures('<input id="inputsl"></input>');
+    var input = $("#inputsl");
+    input.myrangeslider();
+    expect(input).toHaveAttr('value');
+    expect(input).toHaveAttr('max');
+    expect(input).toHaveAttr('min');
+    expect(input).toHaveAttr('step');
+    expect(input).toHaveAttr('type', 'range');
+})

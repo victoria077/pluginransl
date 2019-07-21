@@ -28,6 +28,5 @@ $("p").css("background-color");
             console.log(inputsl.value);
             output.value = inputsl.value;
         })
-        return this;
-    }
+        return this; }
 })(jQuery);
