@@ -117,87 +117,74 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"src/index.js":[function(require,module,exports) {
-console.log('hello world');
+})({"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
 
-function fizzBuzzTranslate(input) {
-  console.log('q');
-  return "1";
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
+
+  return bundleURL;
 }
 
-$("p").css("background-color");
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
 
-(function ($) {
-  $.fn.myrangeslider = function () {
-    var sliderElem = document.getElementById('slider');
-    var thumbElem = sliderElem.children[0];
-
-    thumbElem.onmousedown = function (e) {
-      var thumbCoords = getCoords(thumbElem);
-      var shiftX = e.pageX - thumbCoords.left; // shiftY здесь не нужен, слайдер двигается только по горизонтали
-
-      var sliderCoords = getCoords(sliderElem);
-
-      document.onmousemove = function (e) {
-        //  вычесть координату родителя, т.к. position: relative
-        var newLeft = e.pageX - shiftX - sliderCoords.left; // курсор ушёл вне слайдера
-
-        if (newLeft < 0) {
-          newLeft = 0;
-        }
-
-        var rightEdge = sliderElem.offsetWidth - thumbElem.offsetWidth;
-
-        if (newLeft > rightEdge) {
-          newLeft = rightEdge;
-        }
-
-        thumbElem.style.left = newLeft + 'px';
-      };
-
-      document.onmouseup = function () {
-        document.onmousemove = document.onmouseup = null;
-      };
-
-      return false; // disable selection start (cursor change)
-    };
-
-    thumbElem.ondragstart = function () {
-      return false;
-    };
-
-    function getCoords(elem) {
-      // кроме IE8-
-      var box = elem.getBoundingClientRect();
-      return {
-        top: box.top + pageYOffset,
-        left: box.left + pageXOffset
-      };
+    if (matches) {
+      return getBaseURL(matches[0]);
     }
-  }; // var defaults= {
-  //     min: 11,
-  //     max: 100,
-  //     step: 10,
-  //     value: " "
-  // };
-  // $.fn.myrangeslider = function(options){
-  //     var config= $.extend({}, defaults, options);
-  //     this.append('<input id="inputsl"/>');
-  //     this.append('<output id="output"/>');
-  //     $("input").attr("type","range");
-  //     $("input").attr("min",config.min);
-  //     $("input").attr("max",config.max);
-  //     $("input").attr("step",config.step);
-  //     $("input").attr("value", config.value);
-  //     $("#output").html($("input").val());
-  //     $("input").on('input', function(){
-  //         console.log(inputsl.value);
-  //         output.value = inputsl.value;
-  //     })
-  //     return this; }
+  }
 
-})(jQuery);
-},{}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+  return '/';
+}
+
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
+    }
+
+    cssTimeout = null;
+  }, 50);
+}
+
+module.exports = reloadCSS;
+},{"./bundle-url":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -400,5 +387,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/index.js"], null)
-//# sourceMappingURL=/src.a2b27638.js.map
+},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
+//# sourceMappingURL=/index.js.map
