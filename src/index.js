@@ -9,7 +9,7 @@ $("p").css("background-color");
 
 (function($){
     var defaults= {
-        min: 10,
+        min: 11,
         max: 100,
         step: 10,
         value: " "
