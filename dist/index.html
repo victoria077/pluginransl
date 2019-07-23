@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="/style.e308ff8e.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <style>.slider {
+    <!-- <style>
+      .slider {
         border-radius: 5px;
         background: #e0e0e0;
         background: -moz-linear-gradient(left top, #e0e0e0, #eeeeee) repeat
@@ -33,11 +35,18 @@
         top: -5px;
         background: blue;
         cursor: pointer;
-      }</style>
-  </head>
+      } -->
+    
+  <script src="/style.e308ff8e.js"></script></head>
   <body>
-    <div id="slider" class="slider">
-      <div class="thumb"></div>
+    <!-- <div id='id666' class="range">
+    </div> -->
+
+    <div id="rangeslider" class="range">
+      <div id="range" class="range__between" style="width:100px;"></div>
+        <button id="range__button_1" class="range__button_1" style="margin-left:0px;"></button>
+        <!-- <button id='range__button_2' class="range__button_2" style='margin-left:100px;'></button> -->
+        <input id="input1" class="range_input1" type="number" min="10" max="300">
     </div>
     <script>$(function () {
   $('#myrangeslider').myrangeslider();

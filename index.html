@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <style>
+    <!-- <style>
       .slider {
         border-radius: 5px;
         background: #e0e0e0;
@@ -34,12 +35,18 @@
         top: -5px;
         background: blue;
         cursor: pointer;
-      }
+      } -->
     </style>
   </head>
   <body>
-    <div id="slider" class="slider">
-      <div class="thumb"></div>
+    <!-- <div id='id666' class="range">
+    </div> -->
+
+    <div id='rangeslider' class="range">
+      <div id='range' class='range__between' style='width:100px;'></div>
+        <button id='range__button_1' class="range__button_1" style='margin-left:0px;'></button>
+        <!-- <button id='range__button_2' class="range__button_2" style='margin-left:100px;'></button> -->
+        <input id='input1' class='range_input1' type='number' min='10' max='300'>
     </div>
     <script>
       $(function(){
