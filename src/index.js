@@ -10,94 +10,14 @@ $("p").css("background-color");
 (function($) {
   $.fn.myrangeslider = function() {
 
-  setTimeout(initslider("rangeslider", "range", "range__button_1", "range__button_2"), 0);
+  initslider("rangeslider", "range", "range__button_1", "range__button_2");
     
-function initslider(idX, btwX, btn1X, input1, btn2X) {
-  var slider = document.getElementById(idX);
-  var between = document.getElementById(btwX); 
-  var button1 = document.getElementById(btn1X); 
+function initslider(sl, btw, btn1, input1, btn2) {
+  var slider = document.getElementById(sl);
+  var between = document.getElementById(btw); 
+  var button1 = document.getElementById(btn1); 
   var inpt1 = document.getElementById(input1); 
-  var min=inpt1.min;
-  var max=inpt1.max;
-/*     var button2 = document.getElementById(btn2X);    */
-
-
-
-
-var sliderCoords = getCoords(slider);
-button1.style.marginLeft = '0px';
-button2.style.marginLeft = (slider.offsetWidth-button1.offsetWidth) + 'px';
-between.style.width = (slider.offsetWidth-button1.offsetWidth) + 'px';
-inpt1.value = min;
-inpt2.value = max;
-
-inpt1.onchange= function(evt)
-{
-  if (parseInt(inpt1.value) < min)
-    inpt1.value = min;
-  if (parseInt(inpt1.value) > max)
-    inpt1.value = max;
-  if (parseInt(inpt1.value) > parseInt(inpt2.value))
-  {
-    var temp = inpt1.value;
-    inpt1.value = inpt2.value;
-    inpt2.value = temp;
-  }
-  
-  
-    var sliderCoords = getCoords(slider);
-    var per1 = parseInt(inpt1.value-min)*100/(max-min);
-    var per2 = parseInt(inpt2.value-min)*100/(max-min);
-    var left1 = per1*(slider.offsetWidth-button1.offsetWidth)/100;
-    var left2 = per2*(slider.offsetWidth-button1.offsetWidth)/100;
-    
-        button1.style.marginLeft = left1 + 'px'; 
-        button2.style.marginLeft = left2 + 'px';
-        
-        if (left1 > left2)
-          {
-            between.style.width = (left1-left2) + 'px';
-            between.style.marginLeft = left2 + 'px';
-          }
-        else
-          {
-            between.style.width = (left2-left1) + 'px';
-            between.style.marginLeft = left1 + 'px';  
-          }
-}
-inpt2.onchange= function(evt)
-{
-  if (parseInt(inpt2.value) < min)
-    inpt2.value = min;
-  if (parseInt(inpt2.value) > max)
-    inpt2.value = max;
-  if (parseInt(inpt1.value) > parseInt(inpt2.value))
-  {
-    var temp = inpt1.value;
-    inpt1.value = inpt2.value;
-    inpt2.value = temp;
-  }
-  
-    var sliderCoords = getCoords(slider);
-    var per1 = parseInt(inpt1.value-min)*100/(max-min);
-    var per2 = parseInt(inpt2.value-min)*100/(max-min);
-    var left1 = per1*(slider.offsetWidth-button1.offsetWidth)/100;
-    var left2 = per2*(slider.offsetWidth-button1.offsetWidth)/100;
-    
-        button1.style.marginLeft = left1 + 'px'; 
-        button2.style.marginLeft = left2 + 'px';
-        
-        if (left1 > left2)
-          {
-            between.style.width = (left1-left2) + 'px';
-            between.style.marginLeft = left2 + 'px';
-          }
-        else
-          {
-            between.style.width = (left2-left1) + 'px';
-            between.style.marginLeft = left1 + 'px';  
-          }
-}
+/*     var button2 = document.getElementById(btn2);    */
 
   button1.onmousedown = function(evt) {       
       var sliderCoords = getCoords(slider);
