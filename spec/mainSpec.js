@@ -46,5 +46,6 @@
 
 
 it("Should content init function", function(){
-    expect
+    var func = function initslider(){};
+    expect(func).not.toBeNull();
 })

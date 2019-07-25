@@ -7,11 +7,29 @@ function fizzBuzzTranslate(input) {
 
 $("p").css("background-color");
 
-(function($) {
-  $.fn.myrangeslider = function() {
 
+(function($) {
+  var defaults = {
+    doublerange: false
+  }
+  $.fn.myrangeslider = function(options) {
+
+  var config = $.extend({}, defaults, options);
+  var doublerange = config.doublerange;
   initslider("rangeslider", "range", "range__button_1", "range__button_2");
-    
+
+function addButton(){
+  var btn2 = document.createElement("button");
+  btn2.id = "btn2";
+  btn2.className = "range__button_2";
+  if(doublerange){
+  range.appendChild(btn2);
+}
+  else{
+    console.log("error");
+  }
+}
+addButton();
 function initslider(sl, btw, btn1, input1, btn2) {
   var slider = document.getElementById(sl);
   var between = document.getElementById(btw); 
