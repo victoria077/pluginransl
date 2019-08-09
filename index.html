@@ -42,16 +42,29 @@
     <!-- <div id='id666' class="range">
     </div> -->
 
-    <div id='rangeslider' class="range">
-      <div id='range' class='range__between' style='width:100px;'></div>
-        <button id='range__button_1' class="range__button_1" style='margin-left:0px;'></button>
-        <!-- <button id='range__button_2' class="range__button_2" style='margin-left:100px;'></button> -->
-      
+    <div class="wrapper">
+      <div class="slider" id="slider1">
+        <div class="slider__bar"></div>
+        <div class="slider__toggle" id="slider__toggle"></div>
+        <p class="slider__content">Сумма: <span id="output1" class="slider__output"></span> млн. &#8381;</p>
+      </div>
     </div>
+
     <script>
-      $(function(){
-          $('#myrangeslider').myrangeslider();
-      })
+    $(function(){
+          $('#slider1').myrangeslider();
+      });
+    </script>
+    <script>
+      // let range = document.querySelector(".range");
+      // range.addEventListener = function(){
+      //   console.log(this.value);
+      // }
+    //   thumb = document.getElementById('slider__toggle');
+    // thumb.addEventListener("click",
+    // function(){
+    //   console.log("red")
+    // })
     </script>
     <script src="src/index.js"></script>
   </body>
